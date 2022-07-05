@@ -1,0 +1,22 @@
+{
+  "name": "ifran",
+  "version": "1.0.0",
+  "description": "site web revisité d'Ifran",
+  "main": "index.js",
+  "scripts": {
+    "test": "test"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/malickruru/ifran.git"
+  },
+  "keywords": [
+    "ifran"
+  ],
+  "author": "ruru",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/malickruru/ifran/issues"
+  },
+  "homepage": "https://github.com/malickruru/ifran#readme"
+}
