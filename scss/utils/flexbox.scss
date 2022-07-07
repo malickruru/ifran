@@ -1,0 +1,30 @@
+@mixin flex($j_content, $a_items, $flex_direction) {
+  display: flex;
+  justify-content: $j_content;
+  align-items: $a_items;
+  @if ($flex_direction != 0) {
+    flex-direction: $flex_direction;
+  }
+}
+
+.flex-column {
+  @include flex(center, center, column);
+}
+
+.flex-right {
+  @include flex(right, center, 0);
+}
+
+.flex-left {
+  @include flex(left, center, 0);
+}
+
+.flex-center {
+  @include flex(center, center, 0);
+}
+
+// -------------------------------------text--------------------------------------------
+
+.textCenter {
+  text-align: center;
+}

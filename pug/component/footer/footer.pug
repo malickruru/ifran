@@ -1,2 +1,7 @@
-mixin footer()
-    include firebase.pug
+mixin footer(fonction)
+    script(src="script/utils/utils.js") 
+    each item in fonction
+        if(item == "firebase")
+            include firebase.pug
+        if(item == "animation")
+            include animation.pug

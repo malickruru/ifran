@@ -1,0 +1,13 @@
+:root{
+    --color : #000;
+    --bgColor : #000;
+}
+
+
+@import "../node_modules/bootstrap/scss/bootstrap-grid";
+// @import "../node_modules/bootstrap-icons/font/bootstrap-icons.scss";
+@import "header";
+@import "utils/responsive.scss";
+@import "utils/utils.scss";
+@import "utils/form.scss";
+@import "utils/popup.scss";

@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="fr">
+  <head>
+    <meta charset="UTF-8"/>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <link rel="stylesheet" href="css/bootstrap-icons.css"/>
+    <link rel="stylesheet" href="css/main.css"/>
+    <title>Institut français du numérique</title>
+  </head>
+  <body>
+    <header class="header"><a class="logo" href="index.html">logo</a>
+      <div class="links desktop-only"><a class="link" href="index.html">Accueil</a><a class="EspaceEtudiant link" href="menu_etudiant.html">Espace étudiant</a>
+      </div>
+      <div class="header-option">
+        <div id="toggle_userOption"><i class="bi bi-person click"></i></div><i class="bi bi-list click mobile-only " id="menu" onclick="OpenMenu()"></i>
+      </div>
+    </header>
+    <div id="userOption"></div>
+    <div class="d-none" id="mobile-menu"><a class="link" href="index.html">Accueil</a>
+    </div>
+    <div class="container topHeader">
+      <div class="row py-3">
+        <h1 class="textCenter">Inscription</h1>
+      </div>
+      <div class="row py-3 flex-left">
+        <p id="ins_progression">1 <b>/4</b></p>
+      </div>
+      <div id="ins_form_1">
+        <div class="row"> 
+          <div class="col-sm-6 flex-column">
+            <label>Nom</label>
+            <input class="input-text" type="text" placeholder="Votre nom" name="nom" id="ins_nom"/>
+            <label>Mail</label>
+            <input class="input-text" type="email" placeholder="Votre email" name="email" id="ins_email"/>
+            <label>Commune de résidence</label>
+            <input class="input-text" type="text" placeholder="Votre commune de résidence" name="commune" id="ins_commune"/>
+          </div>
+          <div class="col-sm-6 flex-column">
+            <label>Prénom</label>
+            <input class="input-text" type="text" placeholder="Votre prénom" name="prenom" id="ins_prenom"/>
+            <label>Numéro whatsapp</label>
+            <input class="input-text" type="text" placeholder="Votre numéro whatsapp" name="num" id="ins_num"/>
+            <label>Nationalité</label>
+            <input class="input-text" type="text" placeholder="Votre nationalité" name="nation" id="ins_nation"/>
+          </div>
+        </div>
+        <div class="row py-3">
+          <div class="flex-center">
+            <button class="btn" id="ins_next_1">Suivant</button>
+          </div>
+        </div>
+      </div>
+      <div class="d-none invisible" id="ins_form_2">
+        <div class="row"> 
+          <div class="col-sm-6 flex-column">
+            <label for="specialite">Spécialité</label>
+            <select name="specialite" id="ins_specialite">
+              <option value="Création digital">Création digital</option>
+              <option value="Communication digital">Communication digital</option>
+              <option value="Développement multimédia">Développement multimédia</option>
+            </select>
+            <label>Année d'inscription</label>
+            <input class="input-text" type="date" name="AnneInscription" id="ins_AnneInscription"/>
+            <label>Emploi occupé</label>
+            <input class="input-text" type="text" placeholder="" name="emploi" id="ins_emploi"/>
+            <label>Compétences clés (séparez vos compétences clées d'une virgule)</label>
+            <input class="input-text" type="text" placeholder="Ex: photoshop,inDesign,blender ..." name="competences" id="ins_competences"/>
+          </div>
+          <div class="col-sm-6 flex-column">
+            <label for="niveau">Niveau</label>
+            <select name="niveau" id="ins_niveau">
+              <option value="Prépa">Prépa</option>
+              <option value="Bachelor 2">Bachelor 2</option>
+              <option value="Bachelor 3">Bachelor 3</option>
+            </select>
+            <label>Année de sortie</label>
+            <input class="input-text" type="date" name="AnneSortie" id="ins_AnneSortie"/>
+            <label>Entreprise</label>
+            <input class="input-text" type="text" placeholder="" name="entreprise" id="ins_entreprise"/>
+          </div>
+        </div>
+        <div class="row py-3">
+          <div class="flex-center">
+            <button class="btn" id="ins_next_2">Suivant</button>
+          </div>
+        </div>
+      </div>
+      <div class="d-none invisible" id="ins_form_3">
+        <div class="row"> 
+          <div class="col-sm flex-column">
+            <label>Matricule</label>
+            <input class="input-text" type="text" placeholder="Votre matricule" name="matricule" id="ins_matricule"/>
+            <label>Mot de passe</label>
+            <input class="input-text" type="password" placeholder="Votre mot de passe" name="password" id="ins_password"/>
+            <label>Confirmer le mot de passe</label>
+            <input class="input-text" type="password" placeholder="Confirmer votre mot de passe" name="password" id="ins_comfirm_password"/>
+          </div>
+          <div class="row py-3">
+            <div class="flex-center">
+              <button class="btn" id="ins_next_3">Suivant</button>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="d-none invisible" id="ins_form_4">
+        <div class="row"> 
+          <div class="col-sm flex-column">
+            <label>Charger votre photo de profil</label>
+            <input class="input-text" type="file" name="photo" id="ins_photo"/>
+          </div>
+          <div class="row py-3">
+            <div class="flex-center">
+              <button class="btn" id="ins_valider">Valider</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </body>
+  <script src="script/utils/utils.js"> </script>
+  <script src="script/animation/gsap.min.js"></script>
+  <script src="script/animation/headerMenu.js"> </script>
+  <script src="https://www.gstatic.com/firebasejs/9.8.4/firebase-app-compat.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/9.8.4/firebase-auth-compat.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/9.8.4/firebase-firestore-compat.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/9.8.4/firebase-storage-compat.js"></script>
+  <script src="script/firebase/config.js"></script>
+  <script src="script/firebase/CheckConnection.js">     </script>
+  <script src="script/animation/inscription.js"></script>
+  <script src="script/main/main_inscription.js"></script>
+  <div class="popup d-none"> 
+    <div class="loader"></div>
+    <p>Inscription en cours, veuillez patienter ... </p>
+  </div>
+</html>

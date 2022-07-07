@@ -1,0 +1,39 @@
+mixin form-1-col(inputs,submitLabel,submitId)
+  .row 
+    .col-sm.flex-column
+      if inputs
+        each input in inputs
+          label #{input.label}
+          input(type=input.type  placeholder=input.placeholder name=input.name id=input.id class="input-text" )
+    .row.py-3
+      div.flex-center
+        button(id= submitId class="btn")= submitLabel 
+
+
+mixin form-2-col( inputs_right, input_left, submitLabel, submitId )
+  .row 
+    .col-sm-6.flex-column
+      if inputs_right
+        each input in inputs_right
+          if input.type == 'dropdown'
+            label(for= input.name) #{input.label}
+            select(name=input.name id=input.id)
+              each options in input.option
+                option(value= options) #{options}
+          else
+            label #{input.label}
+            input(type=input.type  placeholder=input.placeholder name=input.name id=input.id class="input-text" )
+    .col-sm-6.flex-column
+          if input_left
+            each input in input_left
+                if input.type == 'dropdown'
+                  label(for= input.name) #{input.label}
+                  select(name=input.name id=input.id)
+                    each options in input.option
+                      option(value= options) #{options}
+                else
+                  label #{input.label}
+                  input(type=input.type  placeholder=input.placeholder name=input.name id=input.id class="input-text" )
+  .row.py-3
+    div.flex-center
+      button(id= submitId class="btn")= submitLabel 

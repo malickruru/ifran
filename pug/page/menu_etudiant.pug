@@ -1,0 +1,13 @@
+include ../component/includes.pug
+doctype html
+html(lang="fr")
+    +head()
+    body
+        +header()
+        .container
+            .row.my-5.py-5 
+                .col-sm.flex-column
+                    h3 Vous êtes étudiants à ifran ?
+                    a(href= 'inscription.html') Inscrivez-vous
+                    a(href= 'connection.html') Connectez-vous
+    +footer(['animation'])

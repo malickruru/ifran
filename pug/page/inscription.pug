@@ -1,0 +1,161 @@
+include ../component/includes.pug
+doctype html
+html(lang="fr")
+    +head()
+    body
+        +header()
+        .container.topHeader
+            .row.py-3
+                h1.textCenter Inscription
+            .row.py-3.flex-left
+                p#ins_progression 1 
+                    b /4
+            div#ins_form_1
+                +form-2-col([
+                    {
+                        label:'Nom',
+                        type:'text',
+                        placeholder:'Votre nom',
+                        name:'nom',
+                        id:'ins_nom'
+                    },
+                    
+                    {
+                        label:'Mail',
+                        type:'email',
+                        placeholder:'Votre email',
+                        name:'email',
+                        id:'ins_email'
+                    },
+                    
+                    {
+                        label:'Commune de résidence',
+                        type:'text',
+                        placeholder:'Votre commune de résidence',
+                        name:'commune',
+                        id:'ins_commune'
+                    }
+                                            
+                ],
+                [
+                    {
+                        label:'Prénom',
+                        type:'text',
+                        placeholder:'Votre prénom',
+                        name:'prenom',
+                        id:'ins_prenom'
+                    },
+                    {
+                        label:'Numéro whatsapp',
+                        type:'text',
+                        placeholder:'Votre numéro whatsapp',
+                        name:'num',
+                        id:'ins_num'
+                    },
+                    {
+                        label:'Nationalité',
+                        type:'text',
+                        placeholder:'Votre nationalité',
+                        name:'nation',
+                        id:'ins_nation'
+                    }    
+                ],'Suivant','ins_next_1')
+            div#ins_form_2.d-none.invisible
+                +form-2-col([
+                    {
+                        label:'Spécialité',
+                        type:'dropdown',
+                        name:'specialite',
+                        id:'ins_specialite',
+                        option:['Création digital','Communication digital','Développement multimédia']
+                    },
+                    
+                    {
+                        label:"Année d'inscription",
+                        type:'date',
+                        name:'AnneInscription',
+                        id:'ins_AnneInscription'
+                    },
+                    
+                    {
+                        label:'Emploi occupé',
+                        type:'text',
+                        placeholder:'',
+                        name:'emploi',
+                        id:'ins_emploi'
+                    },
+                    {
+                        label:"Compétences clés (séparez vos compétences clées d'une virgule)",
+                        type:'text',
+                        placeholder:'Ex: photoshop,inDesign,blender ...',
+                        name:'competences',
+                        id:'ins_competences'
+                    }
+                                            
+                ],
+                [
+                    {
+                        label:'Niveau',
+                        type:'dropdown',
+                        name:'niveau',
+                        id:'ins_niveau',
+                        option:['Prépa','Bachelor 2','Bachelor 3'
+                ]
+                    },
+                    {
+                        label:"Année de sortie",
+                        type:'date',
+                        name:'AnneSortie',
+                        id:'ins_AnneSortie'
+                    },
+                    {
+                        label:'Entreprise',
+                        type:'text',
+                        placeholder:'',
+                        name:'entreprise',
+                        id:'ins_entreprise'
+                    }    
+                ],'Suivant','ins_next_2')
+            div#ins_form_3.d-none.invisible
+                +form-1-col([
+                    {
+                        label:'Matricule',
+                        type:'text',
+                        placeholder:'Votre matricule',
+                        name:'matricule',
+                        id:'ins_matricule'
+                    },
+                    
+                    {
+                        label:'Mot de passe',
+                        type:'password',
+                        placeholder:'Votre mot de passe',
+                        name:'password',
+                        id:'ins_password'
+                    },
+                    
+                    {
+                        label:'Confirmer le mot de passe',
+                        type:'password',
+                        placeholder:'Confirmer votre mot de passe',
+                        name:'password',
+                        id:'ins_comfirm_password'
+                    }
+                                            
+                ],'Suivant','ins_next_3')
+            div#ins_form_4.d-none.invisible
+                +form-1-col([
+                    {
+                        label:'Charger votre photo de profil',
+                        type:'file',
+                        name:'photo',
+                        id:'ins_photo'
+                    },
+                                            
+                ],
+                'Valider','ins_valider')
+
+    +footer(['animation','firebase'])
+    script(src="script/animation/inscription.js")
+    script(src="script/main/main_inscription.js")
+    +loader('Inscription en cours, veuillez patienter ...',true)

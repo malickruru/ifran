@@ -1,0 +1,103 @@
+@import "utils/flexbox.scss";
+
+.header {
+  position: fixed;
+  background-color: var(--color);
+  top: 0;
+  left: 0;
+  right: 0;
+  padding: 15px;
+  height: 80px;
+  @include flex(space-between, center, 0);
+  z-index: 2;
+}
+
+.links {
+  width: 50%;
+  @include flex(space-around, center, 0);
+}
+
+.link {
+  text-decoration: none;
+  color: #fff;
+  padding: 5px 10px;
+  &:hover {
+    color: #fff;
+    opacity: 0.7;
+  }
+}
+
+.link.active {
+  background-color: blue;
+  color: #fff;
+}
+
+.logo {
+  color: #fff;
+  //   font-family: "Aclonica";
+  text-decoration: none;
+  &:hover {
+    color: blue;
+  }
+}
+
+#toggle_userOption {
+  color: #fff;
+  font-size: 1.5em;
+  
+  border-radius: 50%;
+  overflow: hidden;
+  // max-width: 200px;
+}
+
+#userOption {
+  position: fixed;
+  width: 200px;
+  height: 100px;
+  background-color: var(--color);
+  color: #fff;
+  right: 20px;
+  top: 50px;
+  pointer-events: none;
+  opacity: 0;
+  z-index: 3;
+  @include flex(flex-end, center, column);
+}
+
+#mobile-menu {
+  position: fixed;
+  width: 300px;
+  background-color: var(--bgColor);
+  color: #fff;
+  left: 0;
+  top: 0;
+  bottom: 0;
+  z-index: 3;
+  @include flex(center, center, column);
+}
+
+.header-option{
+  @include flex(space-around, center, 0);
+  min-width: 100px;
+}
+
+.header-option > i {
+  font-size: 1.5em;
+  color: #fff;
+}
+
+#userOption > button,
+#userOption > a {
+  width: 100%;
+  box-sizing: border-box;
+  background-color: transparent;
+  border: none;
+  //   border-top: 1px solid #eec373;
+  padding: 5px;
+  color: #fff;
+}
+
+.EspaceEtudiant{
+  background-color:red;
+  color : white;
+}
