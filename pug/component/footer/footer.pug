@@ -1,5 +1,6 @@
 mixin footer(fonction)
     script(src="script/utils/utils.js") 
+    script(src="script/firebase/CheckConnection.js")   
     each item in fonction
         if(item == "firebase")
             include firebase.pug

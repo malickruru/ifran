@@ -46,13 +46,16 @@ function addUser() {
   user.entreprise = $("#ins_entreprise").value;
   user.matricule = $("#ins_matricule").value;
   user.password = $("#ins_password").value;
-  $(".popup").classList.remove("d-none");
-  let email = user.matricule + "@ifran.com"
-  //créer l'utilisateur dans la bd
-  auth
-    .createUserWithEmailAndPassword(email, user.password)
-    .then((res) => {
-        db.collection("users").add({
+
+  if ($("#ins_photo").files[0] != undefined) {
+    $(".popup").classList.remove("d-none");
+    let email = user.matricule + "@ifran.com";
+    //créer l'utilisateur dans la bd
+    auth
+      .createUserWithEmailAndPassword(email, user.password)
+      .then((res) => {
+        db.collection("users")
+          .add({
             nom: $("#ins_nom").value,
             email: $("#ins_email").value,
             commune: $("#ins_commune").value,
@@ -67,23 +70,26 @@ function addUser() {
             AnneSortie: $("#ins_AnneSortie").value,
             entreprise: $("#ins_entreprise").value,
             matricule: $("#ins_matricule").value,
-            password: $("#ins_password").value
-        }).then(() => {
+            password: $("#ins_password").value,
+          })
+          .then(() => {
             var file = $("#ins_photo").files[0];
-            var ext = file.name.split('.').pop();
+            var ext = file.name.split(".").pop();
             var thisRef = storageRef.child(user.matricule + "." + ext);
-            thisRef.put(file).then(()=>{
-                $(".popup").classList.add("d-none");
-                alert('inscription réussit')
-            })
-        })
-        
-    })
-    .catch((err) => {
-      alert(err.message);
-      console.log(err.code);
-      console.log(err.message);
-    });
+            thisRef.put(file).then(() => {
+              $("#ins_loader").classList.add("d-none");
+              $("#ins_success").classList.remove("d-none");
+            });
+          });
+      })
+      .catch((err) => {
+        alert(err.message);
+        console.log(err.code);
+        console.log(err.message);
+      });
+  }else{
+    alert('insérez une photo svp')
+  }
 }
 
 //ecouteur d'evenement

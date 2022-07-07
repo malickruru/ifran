@@ -1,10 +1,10 @@
 TODO 
 
 
-creer un nv dossier pour verifier les credentials
+
 apres l'inscription, redirige vers menu
 
-
-
+page de connection
+afficher la pp quand ya connection
 
 

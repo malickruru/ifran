@@ -1,4 +1,9 @@
-mixin loader(message,hide)
-    .popup(class = hide ? "d-none" : "" ) 
+mixin loader(message,hide,id)
+    .popup(class = hide ? "d-none" : "" id= id) 
         .loader
         p #{message} 
+
+mixin sucessMsg()
+    .popup(class="d-none"  id="ins_success" ) 
+            p Inscription réussit &#127881;
+            button(onclick = "window.location.href = 'index.html'") ok
