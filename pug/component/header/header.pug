@@ -9,9 +9,10 @@ mixin header(active)
             a(class='EspaceEtudiant link', href= 'menu_etudiant.html')= 'Espace étudiant'
         .header-option
             #toggle_userOption
-                i(class = "bi bi-person click")
+                img(class = "rounded_img click" id='user-img' )
             i(class="bi bi-list click mobile-only " id="menu" onclick="OpenMenu()")
     #userOption
+        button(id='deconection' class='click') Se déconnecter
     #mobile-menu.d-none
         each url,nom in rubriques
                 a(class=`${nom == active ? "link active" : "link"}`, href= url)= nom

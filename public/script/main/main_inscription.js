@@ -4,6 +4,7 @@
 
 let index = 1;
 let user = {};
+let userImg ;
 
 //fonction
 const verifyCredential = () => {
@@ -54,8 +55,14 @@ function addUser() {
     auth
       .createUserWithEmailAndPassword(email, user.password)
       .then((res) => {
-        db.collection("users")
-          .add({
+        var file = $("#ins_photo").files[0];
+        var ext = file.name.split(".").pop();
+        userImg = user.matricule + "." + ext;
+        var thisRef = storageRef.child(userImg);
+        thisRef.put(file)
+          .then(() => {
+            db.collection("users")
+            .add({
             nom: $("#ins_nom").value,
             email: $("#ins_email").value,
             commune: $("#ins_commune").value,
@@ -71,12 +78,9 @@ function addUser() {
             entreprise: $("#ins_entreprise").value,
             matricule: $("#ins_matricule").value,
             password: $("#ins_password").value,
+            imgRef : userImg
           })
-          .then(() => {
-            var file = $("#ins_photo").files[0];
-            var ext = file.name.split(".").pop();
-            var thisRef = storageRef.child(user.matricule + "." + ext);
-            thisRef.put(file).then(() => {
+            .then(() => {
               $("#ins_loader").classList.add("d-none");
               $("#ins_success").classList.remove("d-none");
             });

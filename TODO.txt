@@ -2,7 +2,6 @@ TODO
 
 
 
-apres l'inscription, redirige vers menu
 
 page de connection
 afficher la pp quand ya connection

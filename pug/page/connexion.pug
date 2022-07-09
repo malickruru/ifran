@@ -1,0 +1,27 @@
+include ../component/includes.pug
+doctype html
+html(lang="fr")
+    +head()
+    body
+        +header()
+        .container.topHeader
+            .row.py-3
+                h1.textCenter Connection
+            +form-1-col([
+                    {
+                        label:'Votre matricule',
+                        type:'text',
+                        placeholder:'Entrez votre matricule',
+                        name:'matricule',
+                        id:'con_matricule'
+                    },
+                    {
+                        label:'Votre Mot de passe',
+                        type:'password',
+                        placeholder:'Entrez votre mot de passe',
+                        name:'password',
+                        id:'con_password'
+                    }
+            ],"Connection","con_submit")
+        +footer(['animation','firebase'])
+        script(src= 'script/main/main_connexion.js')
